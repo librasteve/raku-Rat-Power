@@ -6,9 +6,12 @@ subset ExpRat of Rat where * == (½,⅓,⅔,¼,¾).any;
 
 multi infix:<**>(Int:D $base, ExpRat:D $exp ) is export {
 
-    # calculate result as usual
-    my $real-res = $base ** $exp.Num;
+    my  $real  = $base ** $exp.Num;          # calculate result as usual
 
-    # check if real res is close to an integer
-    $real-res.round =~= $real-res ?? $real-res.round !! $real-res
+    if  $real.round =~= $real {              # is real result close to an Int?
+        $real.round;
+    } else {
+        $real;
+    }
+
 }
