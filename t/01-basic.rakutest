@@ -1,0 +1,6 @@
+use Test;
+use Rat::Power;
+
+pass "replace me";
+
+done-testing;
