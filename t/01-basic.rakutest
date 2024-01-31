@@ -1,6 +1,7 @@
 use Test;
 use Rat::Power;
 
-pass "replace me";
+ok (64 ** ⅓) ~~ Int,          'Int';
+ok (60 ** ⅓) ~~ Num,          'Num';
 
 done-testing;

@@ -1,32 +1,14 @@
 unit class Rat::Power;
 
 
-=begin pod
+subset ExpRat of Rat where * == (½,⅓,⅔,¼,¾).any;
 
-=head1 NAME
 
-Rat::Power - blah blah blah
+multi infix:<**>(Int:D $base, ExpRat:D $exp ) is export {
 
-=head1 SYNOPSIS
+    # calculate result as usual
+    my $real-res = $base ** $exp.Num;
 
-=begin code :lang<raku>
-
-use Rat::Power;
-
-=end code
-
-=head1 DESCRIPTION
-
-Rat::Power is ...
-
-=head1 AUTHOR
-
-librasteve <librasteve@furnival.net>
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2024 librasteve
-
-This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
-
-=end pod
+    # check if real res is close to an integer
+    $real-res.round =~= $real-res ?? $real-res.round !! $real-res
+}
