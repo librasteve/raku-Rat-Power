@@ -4,7 +4,7 @@ unit class Rat::Power;
 subset ExpRat of Rat where * == (½,⅓,⅔,¼,¾).any;
 
 
-multi infix:<**>(Int:D $base, ExpRat:D $exp ) is export {
+multi infix:<**>(Int:D $base, ExpRat:D $exp) is export {
 
     my  $real = $base ** $exp.Num;          # calculate result as usual
 
